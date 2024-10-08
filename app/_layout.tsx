@@ -41,6 +41,20 @@ export default function Layout() {
             title: '設定title',
           }}
         />
+         <Drawer.Screen
+          name="audio" 
+          options={{
+            drawerLabel: '音訊',
+            title: '音訊Page',
+          }}
+        />
+        <Drawer.Screen
+          name="agora" 
+          options={{
+            drawerLabel: 'Agora',
+            title: 'Agora',
+          }}
+        />
       </Drawer>
     </GestureHandlerRootView>
   );

@@ -8,15 +8,16 @@ import { StyleSheet, Text, View } from "react-native";
 export default function Index() {
   return (
     <View style={styles.container}>
-      <BasicBlock >BasicBlock</BasicBlock>
-      <BasicOBlock >BasicOBlock</BasicOBlock>
+      <BasicBlock >
+        <Text>BasicBlock</Text>
+      </BasicBlock>
 
       <Text>Text Block Here</Text>
       <Link href="/user">Home</Link>
       <Link href="/about">About</Link>
       <Link href="/setting">Setting</Link>
       <Link href="/modal" style={styles.link}>
-        Open modal
+        Open model
       </Link>
     </View>
   );
