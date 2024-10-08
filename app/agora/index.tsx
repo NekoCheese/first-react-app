@@ -20,11 +20,10 @@ import {
     IRtcEngineEventHandler,
 } from 'react-native-agora';
 
-
 // Define basic information
-const appId = '53a9cb0c0cdf41aaa591382fc2211fd8';
-const token = '007eJxTYLiVpVh1zyZsjr1pc2l8Z7qJdPNx1nn2IpbhAaHXT1ZUP1JgsDAzSzJJMTY3SUuyNDG2NLdMTE0zNEo1T0k0NjMxN0+0XMyS3hDIyMCnsZyFkQECQXwWhpLU4hIGBgCNHBxd';
-const channelName = 'test';
+const appId = process.env.EXPO_PUBLIC_APP_ID;
+const token = process.env.EXPO_PUBLIC_API_TOKEN;
+const channelName = process.env.EXPO_PUBLIC_CHANNEL_NAME;
 const uid = 0; // Local user Uid, no need to modify
 
 const App = () => {
@@ -56,6 +55,7 @@ const App = () => {
             const agoraEngine = agoraEngineRef.current;
             eventHandler.current = {
                 onJoinChannelSuccess: () => {
+                    console.log('Successfully joined channel')
                     showMessage('Successfully joined channel: ' + channelName);
                     setIsJoined(true);
                 },
@@ -82,7 +82,14 @@ const App = () => {
 
     // Define the join method called after clicking the join channel button
     const join = async () => {
+        console.log('Try join channel...');
+        console.log(appId);
+        console.log(token);
+        console.log(channelName);
+
+
         if (isJoined) {
+            
             return;
         }
         try {
@@ -123,6 +130,7 @@ const App = () => {
             setRemoteUid(0);
             setIsJoined(false);
             showMessage('Left the channel');
+            console.log('Left the channel');
         } catch (e) {
             console.log(e);
         }
