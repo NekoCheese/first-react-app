@@ -1,4 +1,4 @@
-// Import React Hooks
+// Import React Hooks 鉤子
 import React, { useRef, useState, useEffect } from 'react';
 // Import user interface elements
 import {
@@ -20,7 +20,7 @@ import {
     IRtcEngineEventHandler,
 } from 'react-native-agora';
 
-// Define basic information
+// 從環境變數提取連線資料
 const appId = process.env.EXPO_PUBLIC_APP_ID;
 const token = process.env.EXPO_PUBLIC_API_TOKEN;
 const channelName = process.env.EXPO_PUBLIC_CHANNEL_NAME;
@@ -83,9 +83,6 @@ const App = () => {
     // Define the join method called after clicking the join channel button
     const join = async () => {
         console.log('Try join channel...');
-        console.log(appId);
-        console.log(token);
-        console.log(channelName);
 
 
         if (isJoined) {
